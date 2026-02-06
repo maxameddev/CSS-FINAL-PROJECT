@@ -1,12 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root{
+  --container: 1100px;
+  --pad: 17px;
+}
+
+
+
+html, body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+.front,
+.header,
+nav,
+.work,
+.choose-program,
+.allprograms,
+.classes,
+.table-part,
+.trainers,
+.map-input-all{
+  width:100%;
+  max-width:100%;
+}
+
+table{
+  width:100%;
+  max-width:100%;
+}
+
+.table{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
 
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  padding:0;
-  font-family:"Poppins",sans-serif;
-}
+img{max-width:100%;height:auto;display:block}
+body{margin:0;padding:0;font-family:"Poppins",sans-serif;overflow-x:hidden}
 
 .front{
   width:100%;
@@ -36,7 +68,9 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding-inline:17px;
+  padding-inline:var(--pad);
+  max-width:var(--container);
+  margin:0 auto;
 }
 
 .logo{
@@ -45,12 +79,10 @@ nav{
   text-transform:uppercase;
   margin:0;
   color:#fff;
+  white-space:nowrap;
 }
 
-.logo-span{
-  color:#ed563b;
-  font-weight:900;
-}
+.logo-span{color:#ed563b;font-weight:900}
 
 nav ul{
   display:flex;
@@ -82,6 +114,7 @@ nav ul li:hover{color:#ed563b}
   border:none;
   border-radius:2px;
   color:#fff;
+  white-space:nowrap;
 }
 
 .work{
@@ -92,26 +125,30 @@ nav ul li:hover{color:#ed563b}
   flex-direction:column;
   text-align:center;
   padding-top:120px;
+  padding-inline:var(--pad);
+  max-width:var(--container);
+  margin:0 auto;
 }
 
 .work p{
-  font-size:1.8rem;
+  font-size:clamp(1rem, 2.2vw, 1.8rem);
   margin:0;
-  padding:10px;
+  padding:10px 0;
   font-weight:800;
   letter-spacing:.5px;
   text-transform:uppercase;
 }
 
 .work h1{
-  font-size:5rem;
+  font-size:clamp(2.4rem, 6vw, 5rem);
   text-transform:uppercase;
   font-weight:700;
   color:#fff;
   letter-spacing:1px;
   margin:0;
-  padding:15px;
-  line-height:1;
+  padding:10px 0 0;
+  line-height:1.05;
+  word-break:break-word;
 }
 
 .gym-span{color:#ED563B}
@@ -138,12 +175,14 @@ nav ul li:hover{color:#ed563b}
   align-items:center;
   flex-direction:column;
   padding-block:60px;
+  padding-inline:var(--pad);
 }
 
 .choose-program h1{
   margin:0 0 12px;
   text-transform:uppercase;
   letter-spacing:.5px;
+  text-align:center;
 }
 
 .choose-program span{color:#ED563B}
@@ -164,12 +203,11 @@ nav ul li:hover{color:#ed563b}
 }
 
 .allprograms{
-  width:85%;
+  width:min(85%, var(--container));
   margin:0 auto;
   display:grid;
   grid-template-columns:1fr 1fr;
-  /* column-gap:120px;
-  row-gap:60px; */
+  gap:40px;
   padding-bottom:80px;
   align-items:start;
 }
@@ -178,40 +216,36 @@ nav ul li:hover{color:#ed563b}
 .rightprograms{
   display:flex;
   flex-direction:column;
-  gap: 20px; ;
+  gap:20px;
 }
 
 .icons{
   display:flex;
   align-items:flex-start;
-  gap:30px;
+  gap:22px;
 }
 
 .divimg{
-  width:100px;
-  height:100px;
+  width:90px;
+  height:90px;
   background:#ED563B;
   border-radius:6px;
   display:flex;
   justify-content:center;
   align-items:center;
-  flex:0 0 100px;
+  flex:0 0 90px;
 }
 
 .divimg img{
-  width:55px;
-  height:55px;
+  width:52px;
+  height:52px;
   object-fit:contain;
   filter:brightness(0) invert(1);
   transform:rotate(-45deg);
 }
 
 .leftext,
-.rightext{
-  padding-top: 0;
-  margin-top:0;
-
-}
+.rightext{margin:0}
 
 .leftext h1,
 .rightext h1{
@@ -225,7 +259,7 @@ nav ul li:hover{color:#ed563b}
 .leftext p,
 .rightext p{
   margin:0 0 12px;
-  max-width:420px;
+  max-width:520px;
   line-height:1.7;
   color:#7a7a7a;
   font-size:14px;
@@ -240,33 +274,28 @@ nav ul li:hover{color:#ed563b}
   text-transform:uppercase;
 }
 
-
 .think{
-  width: 100%;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-
+  width:100%;
+  min-height:60vh;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  padding:60px var(--pad);
   background-image:
     linear-gradient(rgba(35,45,57,0.75), rgba(35,45,57,0.75)),
     url(ChatGPTpoo.png);
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-margin-bottom: 20px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  margin-bottom:20px;
 }
 
-
-.think h1{color: #fff;}
-
-.think span{color: #ed563b;}
-
-.think p{width: 70%;
-color: white;}
+.think h1{color:#fff;margin:0 0 10px}
+.think span{color:#ed563b}
+.think p{width:min(70%, 900px);color:#fff;margin:0;line-height:1.7}
 
 .btn3{
   display:inline-block;
@@ -284,40 +313,49 @@ color: white;}
   margin-top:25px;
 }
 
-
-.classes{width: 100%;
-height: 100vh;
-/* background-color: aquamarine; */
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 40px;}
-
-.leftclass{width: 36%;
-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items:center;
-padding: 20px;
-margin-left: 10px;
-gap: 10px;}
-
-.left1{width: 100%;
-height: 40vh;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.10);
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-
+.classes{
+  width:100%;
+  min-height:100vh;
+  height:auto;
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  gap:40px;
+  padding:40px var(--pad);
+  max-width:var(--container);
+  margin:0 auto;
 }
 
+.leftclass{
+  width:36%;
+  min-height:auto;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20px;
+  margin-left:0;
+  gap:16px;
+}
+
+.left1{
+  width:100%;
+  min-height:140px;
+  height:auto;
+  box-shadow:0px 0px 15px rgba(0,0,0,0.10);
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+}
 
 .btn4{
   display:inline-block;
   padding:15px 30px;
-  width: 100%;
-  height: 20vh;
+  width:100%;
+  min-height:56px;
+  height:auto;
   text-transform:uppercase;
   font-weight:700;
   line-height:20px;
@@ -328,133 +366,254 @@ height: 40vh;
   border:none;
   border-radius:2px;
   color:#fff;
-  margin-top:25px;
+  margin-top:10px;
 }
 
+.rightclass{
+  width:54%;
+  height:auto;
+  gap:10px;
+  margin-top:0;
+  display:flex;
+  flex-direction:column;
+}
 
-.rightclass{width: 54%;
-height: 100vh;
-gap: 4px;
-margin-top: 35px;}
-
-.rightclass img{width: 100%;
-border-radius: 5px;}
-
+.rightclass img{width:100%;border-radius:5px}
 
 .btn5{
   display:inline-block;
-  padding:15px 30px;
-  width: 25%;
-  height: 7vh;
+  padding:12px 18px;
+  width:auto;
+  min-height:44px;
+  height:auto;
   text-transform:uppercase;
   font-weight:normal;
   line-height:20px;
   transition:all 0.3s;
-  /* text-align:center; */
-  font-size:0.7rem;
+  font-size:.8rem;
   background-color:#ED563B;
   border:none;
   border-radius:2px;
   color:#fff;
-  
-text-align: center;
+  text-align:center;
+  align-self:flex-start;
 }
 
+.table-part{
+  width:100%;
+  min-height:170vh;
+  height:auto;
+  text-align:center;
+  margin-block:5rem;
+  padding-bottom:40px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)),
+    url("Chat.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
 
+.class-schedule span{color:#ed563b}
+#monday{color:#ed563b}
 
+.class-schedule{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding-top:40px;
+  padding-inline:var(--pad);
+  color:#fff;
+}
 
+.table{
+  display:flex;
+  justify-content:center;
+  padding-top:4rem;
+  padding-inline:var(--pad);
+}
 
+#days{margin-top:4rem}
 
+table{border-collapse:collapse;color:#fff;max-width:100%}
+th, td{border:0.5px solid #fff;padding:24px}
 
+.table{overflow-x:auto}
+.table table{min-width:720px}
 
+.trainers{
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  gap:20px;
+  width:100%;
+  min-height:100vh;
+  height:auto;
+  padding:40px var(--pad);
+  max-width:var(--container);
+  margin:0 auto;
+}
 
+.coaches{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  padding:24px;
+  text-align:start;
+  width:25%;
+  min-height:560px;
+  height:auto;
+  border-radius:5px;
+  border:1px inset #000;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
 
+#trainer-name{margin-bottom:-10px;color:#ed563b}
+#coach-pra{margin-bottom:20px;color:#717275}
+.social-icons{display:flex;gap:10px}
+.coaches img{width:100%;border-radius:5px}
 
+.map-input-all{
+  display:flex;
+  flex-direction:row;
+  gap:0;
+  width:100%;
+  min-height:100vh;
+  height:auto;
+}
 
+.form{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:min(700px, 100%);
+  height:auto;
+  min-height:550px;
+  background-image:url(https://static.vecteezy.com/system/resources/thumbnails/037/228/850/small/ai-generated-exercise-machines-in-a-gym-free-photo.jpg);
+  background-size:cover;
+  background-position:center;
+  padding:24px;
+}
 
+.contact-form{
+  width:min(520px, 100%);
+  height:auto;
+  min-height:420px;
+  background-color:#fff;
+  border-radius:5px;
+  padding:18px;
+}
 
+.row{
+  display:flex;
+  flex-direction:row;
+  gap:10px;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:18px;
+  padding:0;
+}
 
+.contact-form input{
+  height:40px;
+  width:100%;
+  text-align:start;
+}
 
+.column{
+  display:flex;
+  flex-direction:column;
+  margin-top:18px;
+  padding:0;
+  gap:14px;
+}
 
+#t-area{
+  resize:none !important;
+  width:100%;
+  height:120px;
+  outline:none;
+}
 
+#subject{width:100%}
 
+#btn6{
+  width:100%;
+  max-width:220px;
+  height:44px;
+  border:none;
+  background-color:#ED563B;
+  color:#fff;
+  border-radius:2px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+input{outline:none}
 
 @media (max-width:1024px){
   nav{padding-inline:20px}
-  .logo{font-size:2.2rem;white-space:nowrap}
+  .logo{font-size:2.1rem}
   nav ul{gap:18px}
-  nav ul li{font-size:1rem}
-  .btn1{padding:10px 18px;font-size:1rem}
-  .work{padding-top:120px}
-  .work p{font-size:1.35rem}
-  .work h1{font-size:4.8rem}
-  .allprograms{width:90%;column-gap:70px}
+  nav ul li{font-size:.95rem}
+  .btn1{padding:9px 16px;font-size:.95rem}
+  .allprograms{width:min(92%, var(--container));grid-template-columns:1fr 1fr;gap:32px}
+  .classes{gap:24px}
+  .leftclass{width:42%}
+  .rightclass{width:58%}
+  th,td{padding:18px}
+  .coaches{width:30%}
 }
 
 @media (max-width:900px){
-  nav{padding-inline:16px}
-  .logo{font-size:2rem}
-  nav ul{gap:12px}
-  nav ul li{font-size:.9rem}
-  .btn1{padding:8px 14px;font-size:.85rem}
-  .work h1{font-size:4.2rem}
-  .allprograms{grid-template-columns:1fr;row-gap:50px}
+  .allprograms{grid-template-columns:1fr;gap:34px}
+  .classes{flex-direction:column;min-height:auto}
+  .leftclass,.rightclass{width:100%}
+  .btn5{align-self:stretch}
+  .trainers{flex-wrap:wrap}
+  .coaches{width:48%}
+  .map-input-all{flex-direction:column;
+  justify-content: center;
+align-items: center;}
+  ul{display: none;}
+  li{display:none;}
 }
 
 @media (max-width:768px){
   nav ul{display:none}
   .btn1{display:inline-block}
-  .work{padding-top:120px;gap:25px}
-  .work p{font-size:1.6rem;padding:0 20px}
-  .work h1{font-size:4.6rem;padding:0 20px}
+  .work{padding-top:120px}
+  .divimg{width:80px;height:80px;flex:0 0 80px}
+  .divimg img{width:46px;height:46px}
+  .think p{width:100%}
+  .table table{min-width:680px}
+  th,td{padding:16px}
 }
 
 @media (max-width:600px){
-  nav ul{display:none}
-  .btn1{display:none}
-  .work{padding-top:120px;gap:22px}
-  .work p{font-size:1.5rem;padding:0 18px}
-  .work h1{font-size:4rem;padding:0 18px}
-  .btn2{margin-top:20px}
-}
-
-@media (max-width:480px){
-  nav ul{display:none}
   .btn1{display:none}
   nav{justify-content:center}
   .logo{width:100%;text-align:center;font-size:2rem}
-  .work{padding-top:120px;gap:20px}
-  .work p{font-size:1.4rem;padding:0 16px}
-  .work h1{font-size:3.5rem;line-height:.95;padding:0 16px}
+  .icons{gap:16px}
+  .leftext h1,.rightext h1{font-size:20px}
+  .work h1{line-height:1}
+  .coaches{width:100%}
+  .table table{min-width:400px}
+  th,td{padding:14px}
+  .row{flex-direction:column;align-items:stretch}
+}
+
+@media (max-width:480px){
+  .logo{font-size:1.9rem}
+  .btn2,.btn3{width:100%;max-width:320px}
+  .divimg{width:72px;height:72px;flex:0 0 72px}
+  .divimg img{width:42px;height:42px}
+  .table table{min-width:300px}
 }
 
 @media (max-width:390px){
-  .logo{font-size:1.9rem}
+  .logo{font-size:1.75rem}
   .work p{font-size:1rem}
-  .work h1{font-size:3rem}
+  .table table{min-width:100px}
 }
